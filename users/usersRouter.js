@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
     const { id } = req.params;
   
     Users.findById(id)
-    .then(scheme => {
+    .then(user => {
       if (user) {
         res.json(user);
       } else {
