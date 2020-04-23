@@ -47,11 +47,7 @@ router.delete('/:id', (req, res) => {
   
     Users.remove(id)
     .then(user => {
-      if (user) {
-        res.json({ removed: user });
-      } else {
-        res.status(404).json({ message: 'Could not find user with given id' });
-      }
+        res.status(204).json({ message: 'removed user successfully' });
     })
     .catch(err => {
       res.status(500).json({ message: 'Failed to delete user' });

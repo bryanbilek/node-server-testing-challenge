@@ -36,4 +36,18 @@ describe('server', function () {
             });
         });
      });
+
+     describe(" DELETE /users/:id req", function () {
+      beforeEach(async () => {
+        await db('users').truncate(); // empty the table and reset the id back to 1
+      });
+  
+      it("return 204 on successful remove", function () {
+        return request(server)
+          .del("/api/users/1")
+          .then(res => {
+            expect(res.status).toBe(204);
+          });
+      });
+    });
 });
