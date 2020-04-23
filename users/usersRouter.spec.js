@@ -1,9 +1,8 @@
 const request = require('supertest');
-const usersRouter = require('./usersRouter');
 const db = require('../data/dbConfig');
 const server = require('../server')
 
-describe('usersRouter', function () {
+describe('server', function () {
     describe('GET /users req', function () {
         it ('should return 200 status', function() {
             return request(server)
@@ -36,5 +35,5 @@ describe('usersRouter', function () {
               expect(res.body.message).toBe('User created successfully');
             });
         });
-});
+     });
 });
